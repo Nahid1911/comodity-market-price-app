@@ -1,13 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    value: 10,
-    name: "Nahid"
-}
+  value: 10,
+  name: 'Nahid',
+};
 
 const HomePageSlice = createSlice({
-    name: 'homePage',
-    initialState
+  name: 'homePage',
+  initialState,
 });
 
 export default HomePageSlice.reducer;
