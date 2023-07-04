@@ -1,13 +1,49 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { CommodityNameUrl, CommodityHistoryPriceUrl } from '../Components/ApiUrl/ApiUrl';
+import { UserKey } from '../Components/ApiUrl/API';
+import commodities from './commodities';
 
-const initialState = {
-  value: 10,
-  name: 'Nahid',
-};
+export const FETCH_COMMODITIES_SUCCESS = 'FETCH_COMMODITIES_SUCCESS';
 
-const HomePageSlice = createSlice({
-  name: 'homePage',
-  initialState,
+export const fetchCommoditiesSuccess = (commodities) => ({
+  type: FETCH_COMMODITIES_SUCCESS,
+  payload: commodities,
 });
 
-export default HomePageSlice.reducer;
+const fetchCommodities = () => async (dispatch) => {
+  try {
+    const response = await fetch(CommodityNameUrl + UserKey);
+    const commoditiesData = await response.json();
+
+    const commoditiesWithPrice = await Promise.all(commoditiesData.map((commodity) => (async () => {
+      const priceResponse = await fetch(CommodityHistoryPriceUrl + commodity.symbol + UserKey);
+      const priceData = await priceResponse.json();
+
+      return {
+        ...commodity,
+        historicalPrice: priceData.historical,
+      };
+    })()));
+
+    dispatch(fetchCommoditiesSuccess(commoditiesWithPrice));
+  } catch (error) {
+    console.error('Error fetching Commodities', error);
+  }
+};
+
+const initialState = {
+  commodities,
+};
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_COMMODITIES_SUCCESS:
+      return {
+        ...state,
+        commodities: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export { fetchCommodities };
+export default reducer;

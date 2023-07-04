@@ -1,0 +1,13 @@
+.container-fluid {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.navbar {
+    max-width: 100%;
+    justify-content: center;
+    /* margin-left: 30%; */
+    margin-top: 5px;
+}
