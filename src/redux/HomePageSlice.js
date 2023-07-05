@@ -1,6 +1,5 @@
 import { CommodityNameUrl, CommodityHistoryPriceUrl } from '../Components/ApiUrl/ApiUrl';
 import { UserKey } from '../Components/ApiUrl/API';
-import commodities from './commodities';
 
 export const FETCH_COMMODITIES_SUCCESS = 'FETCH_COMMODITIES_SUCCESS';
 
@@ -14,7 +13,7 @@ const fetchCommodities = () => async (dispatch) => {
     const response = await fetch(CommodityNameUrl + UserKey);
     const commoditiesData = await response.json();
 
-    const commoditiesWithPrice = await Promise.all(commoditiesData.map((commodity) => (async () => {
+    const commoditiesWithPrice = await Promise.all(commoditiesData.map(async (commodity) => {
       const priceResponse = await fetch(CommodityHistoryPriceUrl + commodity.symbol + UserKey);
       const priceData = await priceResponse.json();
 
@@ -22,7 +21,7 @@ const fetchCommodities = () => async (dispatch) => {
         ...commodity,
         historicalPrice: priceData.historical,
       };
-    })()));
+    }));
 
     dispatch(fetchCommoditiesSuccess(commoditiesWithPrice));
   } catch (error) {
@@ -31,8 +30,9 @@ const fetchCommodities = () => async (dispatch) => {
 };
 
 const initialState = {
-  commodities,
+  commodities: [],
 };
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_COMMODITIES_SUCCESS:

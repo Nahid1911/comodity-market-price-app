@@ -8,13 +8,14 @@ import { fetchCommodities } from './redux/HomePageSlice';
 import CommodityDetailsPrice from './Components/Commodity/CommodityDetails';
 
 function App() {
-  const elementInStore = useSelector((state) => state.commodityStore.commodities);
+  const elementsInStore = useSelector((state) => state.commodityStore.commodities);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    if (elementInStore.length === 0) {
-      (dispatch(fetchCommodities()));
+    if (elementsInStore.length === 0) {
+      dispatch(fetchCommodities());
     }
-  });
+  }, [dispatch, elementsInStore]);
 
   return (
     <Router>
@@ -22,7 +23,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<CommoditiesContainer />} />
-          <Route path="./Commodity/CommodityDetails" element={<CommodityDetailsPrice />} />
+          <Route path="/Commodity" element={<CommodityDetailsPrice />} />
         </Routes>
       </>
     </Router>

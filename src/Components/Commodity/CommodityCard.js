@@ -47,7 +47,7 @@ function CommodityCard({
       <Card.Body>
         <Button variant="outline-success">
           {' '}
-          <Link to="./Commodity/CommodityDetails">
+          <Link to="/Commodity">
             See Daywise Price
           </Link>
 
