@@ -38,6 +38,7 @@ const CommoditiesContainer = () => {
         {filteredCommodities.map((commodity) => (
           <CommodityCard
             key={commodity.symbol}
+            symbol={commodity.symbol}
             name={commodity.name}
             currency={commodity.currency}
             stockExchange={commodity.stockExchange}

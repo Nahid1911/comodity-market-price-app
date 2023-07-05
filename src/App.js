@@ -11,7 +11,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<CommoditiesContainer />} />
-          <Route path="/Commodity" element={<CommodityDetailsPrice />} />
+          <Route path="/Commodity/:symbol" element={<CommodityDetailsPrice />} />
         </Routes>
       </>
     </Router>

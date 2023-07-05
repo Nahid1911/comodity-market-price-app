@@ -6,7 +6,7 @@ import './CommodityCard.css';
 import { Button } from 'react-bootstrap';
 
 function CommodityCard({
-  name, currency, stockExchange, priceArray, priceArray1, priceArray2,
+  symbol, name, currency, stockExchange, priceArray, priceArray1, priceArray2,
 }) {
   return (
     <Card>
@@ -19,7 +19,7 @@ function CommodityCard({
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>
-          Trading Curruncy:
+          Trading Currency:
           {' '}
           {currency}
         </ListGroup.Item>
@@ -45,12 +45,8 @@ function CommodityCard({
         </ListGroup.Item>
       </ListGroup>
       <Card.Body>
-        <Button variant="outline-success">
-          {' '}
-          <Link to="/Commodity">
-            See Daywise Price
-          </Link>
-
+        <Button variant="outline-success" as={Link} to={`/Commodity/${symbol}`}>
+          See Daywise Price
         </Button>
       </Card.Body>
     </Card>
