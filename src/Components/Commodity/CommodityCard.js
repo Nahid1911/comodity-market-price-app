@@ -6,7 +6,7 @@ import './CommodityCard.css';
 import { Button } from 'react-bootstrap';
 
 function CommodityCard({
-  symbol, name, currency, stockExchange, priceArray, priceArray1, priceArray2,
+  symbol, name, currency, stockExchange,
 }) {
   return (
     <Card>
@@ -27,21 +27,6 @@ function CommodityCard({
           Stock Exchange:
           {' '}
           {stockExchange}
-        </ListGroup.Item>
-        <ListGroup.Item>
-          Date:
-          {' '}
-          {priceArray}
-        </ListGroup.Item>
-        <ListGroup.Item>
-          High Price:
-          {' '}
-          {priceArray1}
-        </ListGroup.Item>
-        <ListGroup.Item>
-          Low Price:
-          {' '}
-          {priceArray2}
         </ListGroup.Item>
       </ListGroup>
       <Card.Body>

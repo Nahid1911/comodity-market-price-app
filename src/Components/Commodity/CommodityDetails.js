@@ -37,7 +37,7 @@ function CommodityDetailsPrice() {
     <Table responsive>
       <thead>
         <tr>
-          <th>#</th>
+          <th>SL. No.</th>
           <th>Date</th>
           <th>Open</th>
           <th>High</th>
