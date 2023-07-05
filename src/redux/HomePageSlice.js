@@ -1,4 +1,4 @@
-import { CommodityNameUrl, CommodityHistoryPriceUrl } from '../Components/ApiUrl/ApiUrl';
+import { CommodityNameUrl } from '../Components/ApiUrl/ApiUrl';
 import { UserKey } from '../Components/ApiUrl/API';
 
 export const FETCH_COMMODITIES_SUCCESS = 'FETCH_COMMODITIES_SUCCESS';
@@ -13,17 +13,7 @@ const fetchCommodities = () => async (dispatch) => {
     const response = await fetch(CommodityNameUrl + UserKey);
     const commoditiesData = await response.json();
 
-    const commoditiesWithPrice = await Promise.all(commoditiesData.map(async (commodity) => {
-      const priceResponse = await fetch(CommodityHistoryPriceUrl + commodity.symbol + UserKey);
-      const priceData = await priceResponse.json();
-
-      return {
-        ...commodity,
-        historicalPrice: priceData.historical,
-      };
-    }));
-
-    dispatch(fetchCommoditiesSuccess(commoditiesWithPrice));
+    dispatch(fetchCommoditiesSuccess(commoditiesData));
   } catch (error) {
     console.error('Error fetching Commodities', error);
   }

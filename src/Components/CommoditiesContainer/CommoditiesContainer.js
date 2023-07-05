@@ -1,20 +1,29 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import CommodityCard from '../Commodity/CommodityCard';
+import { fetchCommodities } from '../../redux/HomePageSlice';
 import './CommoditiesContainer.css';
 
 const CommoditiesContainer = () => {
-  const CommoditiesArray = useSelector((state) => state.commodityStore.commodities);
+  const commodities = useSelector((state) => state.commodityStore.commodities);
   const [filterCommodity, setFilterCommodity] = useState('');
 
-  const filteredCommodities = CommoditiesArray.filter((commodity) => commodity
+  const filteredCommodities = commodities.filter((commodity) => commodity
     .name.toLowerCase().includes(filterCommodity.toLowerCase()));
 
   const handleSearchChange = (event) => {
     setFilterCommodity(event.target.value);
   };
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (commodities.length === 0) {
+      dispatch(fetchCommodities());
+    }
+  }, [dispatch, commodities]);
 
   return (
     <>
@@ -26,18 +35,14 @@ const CommoditiesContainer = () => {
         onChange={handleSearchChange}
       />
       <Container className="commoditiesContainerDiv">
-        {filteredCommodities.map((commodity) => {
-          const firstHistoricalPrice = commodity.historicalPrice?.[0]?.date ?? '';
-          return (
-            <CommodityCard
-              key={commodity.symbol}
-              name={commodity.name}
-              currency={commodity.currency}
-              stockExchange={commodity.stockExchange}
-              priceArray={firstHistoricalPrice}
-            />
-          );
-        })}
+        {filteredCommodities.map((commodity) => (
+          <CommodityCard
+            key={commodity.symbol}
+            name={commodity.name}
+            currency={commodity.currency}
+            stockExchange={commodity.stockExchange}
+          />
+        ))}
       </Container>
     </>
   );
