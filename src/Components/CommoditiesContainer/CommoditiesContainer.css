@@ -5,8 +5,7 @@
   grid-gap: 10px;
   justify-items: stretch;
   align-items: start;
-
-  /* border: 5px solid blue; */
+  background-color: rgb(25, 184, 184);
 }
 
 .form-control {
@@ -14,6 +13,4 @@
   justify-content: center;
   margin-left: 30%;
   margin-top: 5px;
-
-  /* margin-right: 200px; */
 }

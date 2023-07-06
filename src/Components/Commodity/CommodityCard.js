@@ -1,38 +1,39 @@
 /* eslint-disable react/prop-types */
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-import ListGroup from 'react-bootstrap/ListGroup';
+// import ListGroup from 'react-bootstrap/ListGroup';
 import './CommodityCard.css';
 import { Button } from 'react-bootstrap';
+// import List from 'react-bootstrap/List';
 
 function CommodityCard({
   symbol, name, currency, stockExchange,
 }) {
   return (
-    <Card>
+    <Card className="card-class">
       <Card.Body>
-        <Card.Title>
+        <h5 className="cardTitle">
           Product:
           {' '}
           {name}
-        </Card.Title>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item>
-          Trading Currency:
-          {' '}
-          {currency}
-        </ListGroup.Item>
-        <ListGroup.Item>
-          Stock Exchange:
-          {' '}
-          {stockExchange}
-        </ListGroup.Item>
-      </ListGroup>
-      <Card.Body>
-        <Button variant="outline-success" as={Link} to={`/Commodity/${symbol}`}>
-          See Daywise Price
-        </Button>
+        </h5>
+        <div className="cardDiv">
+          <div className="div-line">
+            Trading Currency:
+            {' '}
+            {currency}
+          </div>
+          <div className="div-line">
+            Stock Exchange:
+            {' '}
+            {stockExchange}
+          </div>
+        </div>
+        <div className="buttonContainer">
+          <Button variant="primary" as={Link} to={`/Commodity/${symbol}`}>
+            Details Price
+          </Button>
+        </div>
       </Card.Body>
     </Card>
   );
