@@ -1,10 +1,8 @@
-/* eslint-disable react/prop-types */
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-// import ListGroup from 'react-bootstrap/ListGroup';
+import PropTypes from 'prop-types';
 import './CommodityCard.css';
 import { Button } from 'react-bootstrap';
-// import List from 'react-bootstrap/List';
 
 function CommodityCard({
   symbol, name, currency, stockExchange,
@@ -38,5 +36,12 @@ function CommodityCard({
     </Card>
   );
 }
+
+CommodityCard.propTypes = {
+  symbol: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
+  stockExchange: PropTypes.string.isRequired,
+};
 
 export default CommodityCard;

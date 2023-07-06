@@ -1,57 +1,48 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import fetchMock from 'jest-fetch-mock';
-import {
-  fetchCommoditiesSuccess,
-  fetchCommodities,
-  FETCH_COMMODITIES_SUCCESS,
-} from './HomePageSlice';
+import { fetchCommodities, fetchCommoditiesSuccess } from './HomePageSlice';
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+// Mock the fetch function
+global.fetch = jest.fn();
 
-describe('HomePageSlice', () => {
+describe('fetchCommodities', () => {
+  const dispatch = jest.fn();
+  const mockCommodityNameUrl = 'mocked_commodity_name_url';
+  const mockUserKey = 'mocked_user_key';
+
   beforeEach(() => {
-    fetchMock.resetMocks();
+    fetch.mockClear();
+    dispatch.mockClear();
   });
 
-  it('should create an action to fetch commodities success', () => {
-    const commodities = [{ symbol: 'GOLD', name: 'Gold' }];
-    const expectedAction = {
-      type: FETCH_COMMODITIES_SUCCESS,
-      payload: commodities,
-    };
-    expect(fetchCommoditiesSuccess(commodities)).toEqual(expectedAction);
-  });
-
-  it('should dispatch fetchCommoditiesSuccess action', async () => {
+  it('should dispatch fetchCommoditiesSuccess with the expected commodities data', async () => {
     const expectedCommodities = [
-      {
-        currency: 'USD1',
-        exchangeShortName: 'COMMODITY1',
-        name: 'Commodity 1',
-        stockExchange: 'Stock Exchange1',
-        symbol: 'SYMBOL1',
-      },
-      // Add the other expected commodities here
+      { symbol: 'GOLD', name: 'Gold' },
+      { symbol: 'SILVER', name: 'Silver' },
     ];
 
-    const apiUrl = 'https://financialmodelingprep.com/api/v3/historical-price-full/?apikey=d53d14604708d51673198b4420c4c9af';
-    fetchMock.mockResponseOnce(JSON.stringify(expectedCommodities), { url: apiUrl });
+    const mockResponse = {
+      json: jest.fn().mockResolvedValue(expectedCommodities),
+    };
 
-    const store = mockStore({ commodities: [] });
+    fetch.mockResolvedValue(mockResponse);
 
-    const expectedActions = [
-      {
-        type: FETCH_COMMODITIES_SUCCESS,
-        payload: expectedCommodities,
-      },
-    ];
+    // Call the fetchCommodities function
+    await fetchCommodities(mockCommodityNameUrl, mockUserKey)(dispatch);
 
-    await store.dispatch(fetchCommodities());
+    expect(fetch).toHaveBeenCalledWith(mockCommodityNameUrl + mockUserKey);
+    expect(mockResponse.json).toHaveBeenCalled();
+    expect(dispatch).toHaveBeenCalledWith(fetchCommoditiesSuccess(expectedCommodities));
+  });
 
-    const receivedActions = store.getActions();
+  it('should handle errors and log them', async () => {
+    console.error = jest.fn(); // Mock console.error
 
-    expect(receivedActions).toEqual(expectedActions);
+    const mockError = new Error('API request failed');
+    fetch.mockRejectedValue(mockError);
+
+    // Call the fetchCommodities function
+    await fetchCommodities(mockCommodityNameUrl, mockUserKey)(dispatch);
+
+    expect(fetch).toHaveBeenCalledWith(mockCommodityNameUrl + mockUserKey);
+    expect(console.error).toHaveBeenCalledWith('Error fetching Commodities', mockError);
   });
 });
