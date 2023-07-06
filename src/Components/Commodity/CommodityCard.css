@@ -1,0 +1,9 @@
+.card-body {
+  max-height: 60px;
+  padding: 0;
+}
+
+.card-title {
+  margin: 0;
+  padding: 0;
+}

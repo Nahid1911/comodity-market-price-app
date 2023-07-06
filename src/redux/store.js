@@ -1,11 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import homePageReducer from './HomePageSlice';
+import reducer from './HomePageSlice';
 
 const store = configureStore({
   reducer: {
-    homePageReducer,
+    commodityStore: reducer,
   },
-
 });
 
 export default store;
