@@ -51,11 +51,12 @@ This repository contains the source code for a mobile app that provides updated 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://commodity-market-latest-price.onrender.com) -->
+- [Live Demo Link](https://commodity-market-latest-price.onrender.com)
+- [project Walkthrough Video](https://www.loom.com/share/8f657a3ec8534483a2ab599bfae0bbbe?sid=052fb269-652c-4f3f-accc-71383a8b9fd7)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-GETTING STARTED
+## GETTING STARTED
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -86,14 +87,12 @@ Install this project dependencies with:
 
 - npm install
 
-<!--
 Example command:
 
 ```sh
   cd my-project
   npm install
 ```
---->
 
 ### Usage
 
@@ -107,7 +106,8 @@ To run tests, run the following command:
 
 - npm test
 - npx hint .
-- `npx stylelint "**/*.{css,scss}"` for style error.
+- `npx stylelint "**/*.{css,scss}"` for style errors.
+- `npx eslint "**/*.{js,jsx}"` for Eslint errors
 
 ### Deployment
 
@@ -126,6 +126,8 @@ You can deploy this project using:
 
 - GitHub: [@githubhandle](https://github.com/Nahid1911)
 - Medium: [Medium](https://medium.com/@nahid.raihan)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nahidraihan/)
+- Twitter: [Twitter](https://twitter.com/Nahid1911)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
