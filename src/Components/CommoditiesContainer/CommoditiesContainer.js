@@ -30,13 +30,14 @@ const CommoditiesContainer = () => {
   return (
     <>
       <Form.Control
+        className="formControl"
         type="search"
         placeholder="Search Commodities... (e.g., gold, platinum)"
         aria-label="Search"
         value={filterCommodity}
         onChange={handleSearchChange}
       />
-      <Container className="commoditiesContainerDiv">
+      <Container fluid className="commoditiesContainerDiv">
         {filteredCommodities.map((commodity) => (
           <CommodityCard
             key={commodity.symbol}

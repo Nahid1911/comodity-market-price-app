@@ -1,7 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
+import { Button } from 'react-bootstrap';
 import { UserKey } from '../ApiUrl/API';
 
 function CommodityDetailsPrice() {
@@ -33,32 +34,42 @@ function CommodityDetailsPrice() {
   }
 
   return (
-    <Table responsive>
-      <thead>
-        <tr>
-          <th>SL. No.</th>
-          <th>Date</th>
-          <th>Open</th>
-          <th>High</th>
-          <th>Low</th>
-          <th>Close</th>
-          <th>Volume</th>
-        </tr>
-      </thead>
-      <tbody>
-        {historical.map((item, index) => (
-          <tr key={index}>
-            <td>{index + 1}</td>
-            <td>{item.date}</td>
-            <td>{item.open}</td>
-            <td>{item.high}</td>
-            <td>{item.low}</td>
-            <td>{item.close}</td>
-            <td>{item.volume}</td>
+    <>
+      <Button variant="info" as={Link} to="/">
+        Back to Home
+      </Button>
+      <h3>
+        Commodity Name:
+        { ' ' }
+        {symbol}
+      </h3>
+      <Table variant="success border border-success" responsive>
+        <thead>
+          <tr>
+            <th>SL. No.</th>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+            <th>Volume</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {historical.map((item, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{item.date}</td>
+              <td>{item.open}</td>
+              <td>{item.high}</td>
+              <td>{item.low}</td>
+              <td>{item.close}</td>
+              <td>{item.volume}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </>
   );
 }
 
