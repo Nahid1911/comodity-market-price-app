@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
-// import { CommodityHistoryPriceUrl } from '../ApiUrl/ApiUrl';
 import { UserKey } from '../ApiUrl/API';
 
 function CommodityDetailsPrice() {
