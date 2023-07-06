@@ -5,6 +5,8 @@ import Container from 'react-bootstrap/Container';
 import CommodityCard from '../Commodity/CommodityCard';
 import { fetchCommodities } from '../../redux/HomePageSlice';
 import './CommoditiesContainer.css';
+import { CommodityNameUrl } from '../ApiUrl/ApiUrl';
+import { UserKey } from '../ApiUrl/API';
 
 const CommoditiesContainer = () => {
   const commodities = useSelector((state) => state.commodityStore.commodities);
@@ -21,7 +23,7 @@ const CommoditiesContainer = () => {
 
   useEffect(() => {
     if (commodities.length === 0) {
-      dispatch(fetchCommodities());
+      dispatch(fetchCommodities(CommodityNameUrl, UserKey));
     }
   }, [dispatch, commodities]);
 

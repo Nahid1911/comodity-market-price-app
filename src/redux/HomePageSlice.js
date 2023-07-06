@@ -1,6 +1,3 @@
-import { CommodityNameUrl } from '../Components/ApiUrl/ApiUrl';
-import { UserKey } from '../Components/ApiUrl/API';
-
 export const FETCH_COMMODITIES_SUCCESS = 'FETCH_COMMODITIES_SUCCESS';
 
 export const fetchCommoditiesSuccess = (commodities) => ({
@@ -8,7 +5,7 @@ export const fetchCommoditiesSuccess = (commodities) => ({
   payload: commodities,
 });
 
-const fetchCommodities = () => async (dispatch) => {
+const fetchCommodities = (CommodityNameUrl, UserKey) => async (dispatch) => {
   try {
     const response = await fetch(CommodityNameUrl + UserKey);
     const commoditiesData = await response.json();

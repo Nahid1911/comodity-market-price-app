@@ -4,24 +4,28 @@ import { useParams, Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 import { UserKey } from '../ApiUrl/API';
+import { CommodityHistoryPriceUrl } from '../ApiUrl/ApiUrl';
 
 function CommodityDetailsPrice() {
   const { symbol } = useParams();
   const [commodityData, setCommodityData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = async () => {
+    const response = await fetch(`${CommodityHistoryPriceUrl}${symbol}${UserKey}`);
+    if (response.ok) {
       try {
-        const response = await fetch(`https://financialmodelingprep.com/api/v3//historical-price-full/${symbol}${UserKey}`);
         const data = await response.json();
         setCommodityData(data);
       } catch (error) {
         console.error('Error fetching commodity details', error);
       }
-    };
-
+    } else {
+      console.error('Error fetching commodity details', response.status);
+    }
+  };
+  useEffect(() => {
     fetchData();
-  }, [symbol]);
+  }, []);
 
   if (!commodityData) {
     return <div>Loading...</div>;
