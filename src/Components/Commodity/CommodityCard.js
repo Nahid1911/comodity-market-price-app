@@ -8,7 +8,7 @@ function CommodityCard({
   symbol, name, currency, stockExchange,
 }) {
   return (
-    <Card className="card-class">
+    <Card className="card-class" data-testid="commodity-card">
       <Card.Body>
         <h5 className="cardTitle">
           Product:
