@@ -27,11 +27,11 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-<!-- # 📖 "Commodity Market Price" Project <a name="about-project"></a>
+# 📖 "Commodity Market Price" Project <a name="about-project"></a>
 
 This repository contains the source code for a mobile app that provides updated prices for various commodities in the market. Users can view real-time prices, filter by different commodities, and access historical data.
 
-## 🛠 Built With <a name="built-with"></a>
+<!-- ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
