@@ -81,7 +81,7 @@ Clone this repository to your desired folder:
   git clone Nahid1911/comodity-market-price-app
 ```
 
-<!-- ### Install
+### Install
 
 Install this project dependencies with:
 
@@ -94,7 +94,7 @@ Example command:
   npm install
 ```
 
-### Usage
+<!-- ### Usage
 
 To run the project, execute the following command:
 
