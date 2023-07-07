@@ -72,7 +72,7 @@ In order to run this project you need:
 - Redux;
 - Reduxjs/Toolkit
 
-<!-- ### Setup
+### Setup
 
 Clone this repository to your desired folder:
 
@@ -81,7 +81,7 @@ Clone this repository to your desired folder:
   git clone Nahid1911/comodity-market-price-app
 ```
 
-### Install
+<!-- ### Install
 
 Install this project dependencies with:
 
