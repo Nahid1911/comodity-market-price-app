@@ -1,51 +1,57 @@
-/* eslint-disable react/prop-types */
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import { MemoryRouter } from 'react-router-dom';
 import CommoditiesContainer from './CommoditiesContainer';
 
-// Mock the redux store
 const mockStore = configureStore([]);
+
+// Create a mock store with initial state
 const initialState = {
   commodityStore: {
     commodities: [
       {
-        symbol: 'ABC',
-        name: 'Gold',
+        symbol: 'AAPL',
+        name: 'Apple Inc.',
         currency: 'USD',
-        stockExchange: 'NYSE',
+        stockExchange: 'NASDAQ',
       },
       {
-        symbol: 'DEF',
-        name: 'Silver',
+        symbol: 'GOOGL',
+        name: 'Alphabet Inc.',
         currency: 'USD',
-        stockExchange: 'NYSE',
+        stockExchange: 'NASDAQ',
       },
     ],
   },
 };
 const store = mockStore(initialState);
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  Link: ({ to, children }) => <a href={to}>{children}</a>,
-}));
-
 describe('CommoditiesContainer', () => {
-  test('renders the container with filtered commodities', () => {
+  beforeEach(() => {
     render(
       <Provider store={store}>
-        <CommoditiesContainer />
+        <MemoryRouter>
+          <CommoditiesContainer />
+        </MemoryRouter>
       </Provider>,
     );
+  });
 
-    // Assert the loading state
-    expect(screen.getByLabelText('Search')).toBeInTheDocument();
+  it('renders the search input', () => {
+    const searchInput = screen.getByPlaceholderText('Search Commodities... (e.g., gold, platinum)');
+    expect(searchInput).toBeInTheDocument();
+  });
 
-    // Assert the rendered commodities
-    expect(screen.getByLabelText('Search')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Search Commodities... (e.g., gold, platinum)')).toBeInTheDocument();
-    expect(screen.getByText('Product: Gold')).toBeInTheDocument();
-    expect(screen.getByText('Product: Silver')).toBeInTheDocument();
+  it('updates the filtered commodities when the search input value changes', () => {
+    const searchInput = screen.getByPlaceholderText('Search Commodities... (e.g., gold, platinum)');
+
+    fireEvent.change(searchInput, { target: { value: 'apple' } });
+
+    const commodityCards = screen.getAllByTestId('commodity-card');
+    expect(commodityCards.length).toBe(1);
+    expect(commodityCards[0]).toHaveTextContent(/Apple Inc./i);
+    expect(commodityCards[0]).toHaveTextContent(/USD/i);
+    expect(commodityCards[0]).toHaveTextContent(/NASDAQ/i);
   });
 });
