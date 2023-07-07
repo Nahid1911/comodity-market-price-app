@@ -31,11 +31,11 @@
 
 This repository contains the source code for a mobile app that provides updated prices for various commodities in the market. Users can view real-time prices, filter by different commodities, and access historical data.
 
-<!-- ## 🛠 Built With <a name="built-with"></a>
+## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<details>
+<!-- <details>
   <ul>
     <li><a href="https://react-redux.js.org/">React-Redux</a></li>
     <li><a href="https://react-bootstrap.netlify.app/">React-Bootstrap</a></li>
