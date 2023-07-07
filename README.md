@@ -56,7 +56,7 @@ This repository contains the source code for a mobile app that provides updated 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ## GETTING STARTED
+## GETTING STARTED
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -72,7 +72,7 @@ In order to run this project you need:
 - Redux;
 - Reduxjs/Toolkit
 
-### Setup
+<!-- ### Setup
 
 Clone this repository to your desired folder:
 
