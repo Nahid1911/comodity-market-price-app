@@ -118,8 +118,6 @@ You can deploy this project using:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
-
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Nahid Raihan Sardar**
@@ -143,7 +141,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project, U can reach me on my Twitter handle for any collaboration. Here is my Paypal account, for any fund assistance.
+show your support by giving the project a star ⭐️, thanks in advance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
