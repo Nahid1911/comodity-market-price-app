@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
@@ -61,7 +60,7 @@ function CommodityDetailsPrice() {
         </thead>
         <tbody>
           {historical.map((item, index) => (
-            <tr key={index}>
+            <tr key={symbol}>
               <td>{index + 1}</td>
               <td>{item.date}</td>
               <td>{item.open}</td>

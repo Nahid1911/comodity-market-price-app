@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import CommodityCard from './CommodityCard';
@@ -14,7 +13,12 @@ describe('CommodityCard', () => {
   test('renders the card with correct props', () => {
     render(
       <MemoryRouter>
-        <CommodityCard {...defaultProps} />
+        <CommodityCard
+          symbol={defaultProps.symbol}
+          name={defaultProps.name}
+          currency={defaultProps.currency}
+          stockExchange={defaultProps.stockExchange}
+        />
       </MemoryRouter>,
     );
 
