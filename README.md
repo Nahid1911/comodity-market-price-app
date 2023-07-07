@@ -94,13 +94,13 @@ Example command:
   npm install
 ```
 
-<!-- ### Usage
+### Usage
 
 To run the project, execute the following command:
 
 - Run `npm start` to see the webpage in local host
 
-### Run tests
+<!-- ### Run tests
 
 To run tests, run the following command:
 
