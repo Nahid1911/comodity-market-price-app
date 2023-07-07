@@ -109,7 +109,7 @@ To run tests, run the following command:
 - `npx stylelint "**/*.{css,scss}"` for style errors.
 - `npx eslint "**/*.{js,jsx}"` for Eslint errors
 
-<!-- ### Deployment
+### Deployment
 
 You can deploy this project using:
 
@@ -127,7 +127,7 @@ You can deploy this project using:
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/nahidraihan/)
 - Twitter: [Twitter](https://twitter.com/Nahid1911)
 
-## 🔭 Future Features <a name="future-features"></a>
+<!-- ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Nothing**
 
