@@ -127,7 +127,7 @@ You can deploy this project using:
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/nahidraihan/)
 - Twitter: [Twitter](https://twitter.com/Nahid1911)
 
-<!-- ## 🔭 Future Features <a name="future-features"></a>
+## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Nothing**
 
@@ -157,4 +157,4 @@ Original design idea by [Nelson Sakwa on Behance](https://www.behance.net/sakwad
 
 This project is [MIT](./LICENSE) licensed.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
