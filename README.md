@@ -49,14 +49,14 @@ This repository contains the source code for a mobile app that provides updated 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://commodity-market-latest-price.onrender.com)
 - [Project Walkthrough Video](https://www.loom.com/share/d5e10b17920d4f6ea9b695720d429322?sid=49facdea-8653-4097-91be-283c85d69335)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## GETTING STARTED
+<!-- ## GETTING STARTED
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
