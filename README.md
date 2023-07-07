@@ -35,7 +35,7 @@ This repository contains the source code for a mobile app that provides updated 
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<!-- <details>
+<details>
   <ul>
     <li><a href="https://react-redux.js.org/">React-Redux</a></li>
     <li><a href="https://react-bootstrap.netlify.app/">React-Bootstrap</a></li>
@@ -43,7 +43,7 @@ This repository contains the source code for a mobile app that provides updated 
   </ul>
 </details>
 
-### Key Features <a name="key-features"></a>
+<!-- ### Key Features <a name="key-features"></a>
 
 - [Single Page Webapp](https://en.wikipedia.org/wiki/Single-page_application)
 
